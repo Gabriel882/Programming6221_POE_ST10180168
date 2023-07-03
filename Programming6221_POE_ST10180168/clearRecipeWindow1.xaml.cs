@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeApplication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,9 @@ namespace Programming6221_POE_ST10180168
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(" The recipe you entered has been cleared");
 
+            
         }
     }
 }

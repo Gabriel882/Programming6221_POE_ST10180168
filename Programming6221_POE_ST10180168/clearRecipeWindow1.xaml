@@ -19,11 +19,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="22"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="87*"/>
             <RowDefinition Height="22"/>
 
 
@@ -36,7 +36,7 @@
 
         <TextBlock Grid.Column="1" Grid.Row="2" FontWeight="Bold"
                    Text=" Confirm you want to clear recipe: " FontFamily="Segoe UI" />
-        
+
         <Button Grid.Column="1" Content="yes clear recipe" HorizontalAlignment="Left" Margin="37,10,0,0" Grid.Row="6" VerticalAlignment="Top" Click="Button_Click" Width="125"/>
 
 

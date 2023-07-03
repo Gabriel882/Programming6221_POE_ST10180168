@@ -37,11 +37,11 @@ public void ScaleRecipe(double scaleFactor)
     }
 
     // RecipeManagement class
-    public class RecipeManagement
+    public class controlRecipe
     {
         private List<Recipe> recipes;
 
-        public RecipeManagement()
+        public controlRecipe()
         {
             recipes = new List<Recipe>();
         }
@@ -112,7 +112,7 @@ public void ScaleRecipe(double scaleFactor)
     // MainWindow class (UI)
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private RecipeManagement recipeManagement;
+        private controlRecipe controlRecipe;
         private List<Recipe> displayedRecipes;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -121,7 +121,7 @@ public void ScaleRecipe(double scaleFactor)
         {
             InitializeComponent();
 
-            recipeManagement = new RecipeManagement();
+            controlRecipe = new controlRecipe();
             displayedRecipes = new List<Recipe>();
 
         
@@ -194,7 +194,7 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
     }
 
     // Add the recipe to the management class
-    recipeManagement.AddRecipe(recipe);
+    controlRecipe.AddRecipe(recipe);
 
     // Clear input fields
     RecipeNameTextBox.Clear();
@@ -228,7 +228,9 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
         {
             if (RecipeListBox.SelectedItem is Recipe selectedRecipe)
             {
-                recipeManagement.ResetQuantities(selectedRecipe.RecipeName);
+                MessageBox.Show(" Quantities have reset back to original values");
+
+                controlRecipe.ResetQuantities(selectedRecipe.RecipeName);
                 UpdateDisplayedRecipes();
             }
         }
@@ -237,7 +239,8 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
         {
             if (RecipeListBox.SelectedItem is Recipe selectedRecipe)
             {
-                var recipeDetails = $"Name: {selectedRecipe.RecipeName}\n" +
+                var recipeDetails = $"The Full Recipe is as follows\n" +
+                                     $"Name: {selectedRecipe.RecipeName}\n" +
                                     $"Calories: {selectedRecipe.Calories}\n" +
                                     $"Food Group: {selectedRecipe.FoodGroup}\n" +
                                     "\nIngredients:\n";
@@ -260,12 +263,10 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
 
         private void ClearDataButton_Click(object sender, RoutedEventArgs e)
         {
-            clearRecipeWindow1 objclearRecipeWindow1 = new clearRecipeWindow1();
-            this.Visibility = Visibility.Hidden;
-            objclearRecipeWindow1.Show();
-            
+           
+            MessageBox.Show(" The recipe you entered has been cleared");
 
-            recipeManagement = new RecipeManagement();
+            controlRecipe = new controlRecipe();
             UpdateDisplayedRecipes();
         }
 
@@ -275,7 +276,7 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
 
             var filterText = FilterTextBox.Text.ToLower();
 
-            foreach (var recipe in recipeManagement.GetRecipeList())
+            foreach (var recipe in controlRecipe.GetRecipeList())
             {
                 if (string.IsNullOrEmpty(filterText) ||
                     recipe.RecipeName.ToLower().Contains(filterText) ||
