@@ -23,7 +23,7 @@
             <TextBox x:Name="FilterTextBox" Width="200" Margin="10,0" TextChanged="FilterTextBox_TextChanged"/>
         </StackPanel>
 
-        <ListBox x:Name="RecipeListBox" Grid.Row="2" Margin="10,32,24,10" 
+        <ListBox x:Name="RecipeListBox" Grid.Row="2" Margin="17,52,17,52" 
                  ItemsSource="{Binding displayedRecipes}" DisplayMemberPath="RecipeName" Grid.ColumnSpan="2" />
 
         <Grid Grid.Row="1" Margin="10,20,10,217" Grid.ColumnSpan="2" Grid.RowSpan="2">
@@ -81,21 +81,21 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <ComboBox x:Name="ScaleFactorComboBox" Grid.Row="0" Width="100" HorizontalAlignment="Left" Margin="19,5,0,5" SelectionChanged="ScaleFactorComboBox_SelectionChanged">
+                    <ComboBox x:Name="ScaleFactorComboBox" Grid.Row="4" Width="100" HorizontalAlignment="Left" Margin="0,0,0,-22" SelectionChanged="ScaleFactorComboBox_SelectionChanged">
                         <ComboBoxItem Content="0.5" />
                         <ComboBoxItem Content="2" />
                         <ComboBoxItem Content="3" />
                     </ComboBox>
 
-                    <Button x:Name="ResetQuantitiesButton" Grid.Row="1" Content="Reset Quantities" Width="100" HorizontalAlignment="Center" Margin="0,5,0,0" Click="ResetQuantitiesButton_Click" Background="#FF5722" Foreground="#FFFFFF" Height="20" VerticalAlignment="Top"/>
 
-                    <Button x:Name="DisplayRecipeButton" Grid.Row="2" Content="Display Full Recipe" Width="132" HorizontalAlignment="Center" Margin="0,5,0,5" Click="DisplayRecipeButton_Click" Background="#4CAF50" Foreground="#FFFFFF"/>
+                    <Button x:Name="DisplayRecipeButton" Grid.Row="4" Content="Display Full Recipe" Width="132" HorizontalAlignment="Center" Margin="0,34,0,-54" Click="DisplayRecipeButton_Click" Background="#4CAF50" Foreground="#FFFFFF"/>
 
-                    <Button x:Name="ClearDataButton" Grid.Row="3" Content="Deletel Recipe" Width="100" HorizontalAlignment="Center" Margin="0,5" Click="ClearDataButton_Click" Background="#F44336" Foreground="#FFFFFF"/>
+                    <Button x:Name="ClearDataButton" Grid.Row="4" Content="Deletel Recipe" Width="100" HorizontalAlignment="Center" Margin="0,59,0,-79" Click="ClearDataButton_Click" Background="#F44336" Foreground="#FFFFFF"/>
 
-                    <Button x:Name="ScaleRecipeButton" Content="Scale Recipe" Width="100" HorizontalAlignment="Left" Margin="128,5,0,7" Click="ScaleRecipeButton_Click" Background="#FF9800" Foreground="#FFFFFF"/>
+                    <Button x:Name="ScaleRecipeButton" Content="Scale Recipe" Width="100" HorizontalAlignment="Left" Margin="124,2,0,-22" Click="ScaleRecipeButton_Click" Background="#FF9800" Foreground="#FFFFFF" Grid.Row="4"/>
                 </Grid>
             </GroupBox>
         </Grid>
+        <TextBlock  Grid.Column="1" FontSize="23" HorizontalAlignment="Left" Margin="151,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="This is will the Recipe names" VerticalAlignment="Top" Height="35" Width="348"/>
     </Grid>
 </Window>

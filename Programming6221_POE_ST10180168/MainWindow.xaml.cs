@@ -224,16 +224,7 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
 }
 
 
-        private void ResetQuantitiesButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (RecipeListBox.SelectedItem is Recipe selectedRecipe)
-            {
-                MessageBox.Show(" Quantities have reset back to original values");
-
-                controlRecipe.ResetQuantities(selectedRecipe.RecipeName);
-                UpdateDisplayedRecipes();
-            }
-        }
+      
 
         private void DisplayRecipeButton_Click(object sender, RoutedEventArgs e)
         {
