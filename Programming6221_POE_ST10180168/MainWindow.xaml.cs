@@ -259,6 +259,10 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
 
                 MessageBox.Show(recipeDetails, "Recipe Details", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            else
+            {
+                MessageBox.Show(" you have not entered a recipe yet");
+            }
         }
 
         private void ClearDataButton_Click(object sender, RoutedEventArgs e)
@@ -295,6 +299,11 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
         {
             FilterTextBox.Clear();
             UpdateDisplayedRecipes();
+        }
+
+        private void QuantityTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -14,27 +14,27 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,10,0,10" Grid.Column="1" Width="368">
-            <TextBlock Text="Filter by: " VerticalAlignment="Center"/>
+            <TextBlock Text="Filter : " VerticalAlignment="Center"/>
             <ComboBox x:Name="FilterComboBox" Width="100" SelectionChanged="FilterComboBox_SelectionChanged">
-                <ComboBoxItem Content="All"/>
+                <ComboBoxItem Content="maximum number of calories"/>
                 <ComboBoxItem Content="Ingredient"/>
                 <ComboBoxItem Content="Food Group"/>
             </ComboBox>
             <TextBox x:Name="FilterTextBox" Width="200" Margin="10,0" TextChanged="FilterTextBox_TextChanged"/>
         </StackPanel>
 
-        <ListBox x:Name="RecipeListBox" Grid.Row="2" Margin="10,10,10,10" 
+        <ListBox x:Name="RecipeListBox" Grid.Row="2" Margin="10,32,24,10" 
                  ItemsSource="{Binding displayedRecipes}" DisplayMemberPath="RecipeName" Grid.ColumnSpan="2" />
 
-        <Grid Grid.Row="1" Margin="10,10,10,10" Grid.ColumnSpan="2">
+        <Grid Grid.Row="1" Margin="10,20,10,217" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <GroupBox Header="Add Recipe" Grid.Column="0" Margin="0,0,10,0" Background="#FFFFFF">
-                <Grid Margin="10">
+            <GroupBox Header="Add New Recipe" Grid.Column="0" Margin="0,0,10,0" Background="#FFFFFF" Grid.ColumnSpan="2">
+                <Grid Margin="10,0,10,0" Height="183">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -46,32 +46,32 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="0" Text="Name of the Recipe:" VerticalAlignment="Center"/>
-                    <TextBox x:Name="RecipeNameTextBox" Grid.Row="0" VerticalAlignment="Center" Margin="133,0,5,0"/>
+                    <TextBlock Grid.Row="0" Text="Name of the Recipe:" VerticalAlignment="Top" Margin="0,2,0,0"/>
+                    <TextBox x:Name="RecipeNameTextBox" VerticalAlignment="Top" Margin="144,1,5,0"/>
 
-                    <TextBlock Grid.Row="1" Text="Calories:" VerticalAlignment="Center"/>
-                    <TextBox x:Name="CaloriesTextBox" Grid.Row="1" VerticalAlignment="Center" Margin="133,0,5,0"/>
+                    <TextBlock Text="Calories:" VerticalAlignment="Top" Margin="0,22,0,0" Grid.RowSpan="2"/>
+                    <TextBox x:Name="CaloriesTextBox" VerticalAlignment="Top" Margin="144,21,5,0" Grid.RowSpan="2"/>
 
-                    <TextBlock Grid.Row="2" Text="Food Group:" VerticalAlignment="Center"/>
-                    <TextBox x:Name="FoodGroupTextBox" Grid.Row="2" VerticalAlignment="Center" Margin="133,0,5,0"/>
+                    <TextBlock Grid.Row="1" Text="Food Group:" VerticalAlignment="Top" Margin="0,18,0,0" Grid.RowSpan="2"/>
+                    <TextBox x:Name="FoodGroupTextBox" Grid.Row="1" VerticalAlignment="Top" Margin="144,17,5,0" Grid.RowSpan="2"/>
 
-                    <TextBlock Grid.Row="3" Text="Name of the Ingredients:" VerticalAlignment="Center"/>
-                    <TextBox x:Name="IngredientsTextBox" Grid.Row="3" VerticalAlignment="Center" Margin="144,0,5,0" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="2" Text="Name of the Ingredients:" VerticalAlignment="Top" Margin="0,15,0,0" Grid.RowSpan="2"/>
+                    <TextBox x:Name="IngredientsTextBox" Grid.Row="2" VerticalAlignment="Top" Margin="144,14,5,0" TextWrapping="Wrap" Grid.RowSpan="2"/>
 
-                    <TextBlock Grid.Row="4" Text="Steps (one per line):" VerticalAlignment="Center"/>
-                    <TextBox x:Name="StepsTextBox" Grid.Row="4" VerticalAlignment="Center" Margin="119,0,5,0" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="3" Text="Steps (one per line):" VerticalAlignment="Top" Margin="0,12,0,0" Grid.RowSpan="2"/>
+                    <TextBox x:Name="StepsTextBox" Grid.Row="3" VerticalAlignment="Top" Margin="144,11,5,0" TextWrapping="Wrap" Grid.RowSpan="2"/>
 
-                    <TextBlock Grid.Row="5" Text="Quantity:" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Row="6" Text="Unit of Measurement:" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="4" Text="Quantity:" VerticalAlignment="Top" Margin="0,10,0,0" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Row="5" Text="Unit of Measurement:" VerticalAlignment="Top" Margin="0,8,0,0" Grid.RowSpan="2"/>
 
-                    <TextBox x:Name="QuantityTextBox" Grid.Row="5" VerticalAlignment="Center" Margin="133,0,5,0"/>
-                    <TextBox x:Name="UnitTextBox" Grid.Row="6" VerticalAlignment="Center" Margin="133,0,5,0"/>
+                    <TextBox x:Name="QuantityTextBox" Grid.Row="4" VerticalAlignment="Top" Margin="144,8,5,0" TextChanged="QuantityTextBox_TextChanged" Grid.RowSpan="2"/>
+                    <TextBox x:Name="UnitTextBox" Grid.Row="5" VerticalAlignment="Top" Margin="144,5,5,0"/>
 
-                    <Button x:Name="AddRecipeButton" Grid.Row="7" Content="Add Recipe" HorizontalAlignment="Left" Margin="83,16,0,0" Click="AddRecipeButton_Click" Background="#2196F3" Foreground="#FFFFFF" Height="20" VerticalAlignment="Top"/>
+                    <Button x:Name="AddRecipeButton" Grid.Row="6" Content="Add Recipe" HorizontalAlignment="Left" Margin="191,11,0,0" Click="AddRecipeButton_Click" Background="#2196F3" Foreground="#FFFFFF" Height="20" VerticalAlignment="Top" Grid.RowSpan="2"/>
                 </Grid>
             </GroupBox>
 
-            <GroupBox Header="Controls" Grid.Column="1" Margin="10,0" Background="#FFFFFF">
+            <GroupBox Header="Controls" Grid.Column="2" Margin="0,0,20,0" Background="#FFFFFF">
                 <Grid Margin="10,0,-6,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -87,11 +87,11 @@
                         <ComboBoxItem Content="3" />
                     </ComboBox>
 
-                    <Button x:Name="ResetQuantitiesButton" Grid.Row="1" Content="Reset Quantities" Width="100" HorizontalAlignment="Center" Margin="0,5" Click="ResetQuantitiesButton_Click" Background="#FF5722" Foreground="#FFFFFF"/>
+                    <Button x:Name="ResetQuantitiesButton" Grid.Row="1" Content="Reset Quantities" Width="100" HorizontalAlignment="Center" Margin="0,5,0,0" Click="ResetQuantitiesButton_Click" Background="#FF5722" Foreground="#FFFFFF" Height="20" VerticalAlignment="Top"/>
 
-                    <Button x:Name="DisplayRecipeButton" Grid.Row="2" Content="Display Recipe" Width="100" HorizontalAlignment="Center" Margin="0,5" Click="DisplayRecipeButton_Click" Background="#4CAF50" Foreground="#FFFFFF"/>
+                    <Button x:Name="DisplayRecipeButton" Grid.Row="2" Content="Display Full Recipe" Width="132" HorizontalAlignment="Center" Margin="0,5,0,5" Click="DisplayRecipeButton_Click" Background="#4CAF50" Foreground="#FFFFFF"/>
 
-                    <Button x:Name="ClearDataButton" Grid.Row="3" Content="Clear Data" Width="100" HorizontalAlignment="Center" Margin="0,5" Click="ClearDataButton_Click" Background="#F44336" Foreground="#FFFFFF"/>
+                    <Button x:Name="ClearDataButton" Grid.Row="3" Content="Deletel Recipe" Width="100" HorizontalAlignment="Center" Margin="0,5" Click="ClearDataButton_Click" Background="#F44336" Foreground="#FFFFFF"/>
 
                     <Button x:Name="ScaleRecipeButton" Content="Scale Recipe" Width="100" HorizontalAlignment="Left" Margin="128,5,0,7" Click="ScaleRecipeButton_Click" Background="#FF9800" Foreground="#FFFFFF"/>
                 </Grid>
