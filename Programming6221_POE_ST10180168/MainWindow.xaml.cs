@@ -73,40 +73,24 @@ public void ScaleRecipe(double scaleFactor)
             }
         }
 
-        public void ResetQuantities(string recipeName)
-        {
-            var recipe = GetRecipeByName(recipeName);
-            if (recipe != null)
-            {
-                foreach (var ingredient in recipe.Ingredients)
-                {
-                    // Assuming the original quantities are stored somewhere
-                    ingredient.Quantity = GetOriginalQuantity(ingredient.Name);
-                }
-            }
-        }
+       
 
         public List<Recipe> FilterByIngredient(string ingredientName)
         {
             return recipes.Where(r => r.Ingredients.Any(i => i.Name.Equals(ingredientName, StringComparison.OrdinalIgnoreCase))).ToList();
         }
 
-        public List<Recipe> FilterByFoodGroup(string foodGroup)
+        public List<Recipe> FilterByFoodGroup(string foodGroups)
         {
-            return recipes.Where(r => r.FoodGroup.Equals(foodGroup, StringComparison.OrdinalIgnoreCase)).ToList();
+            return recipes.Where(r => r.FoodGroup.Equals(foodGroups, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
-        public List<Recipe> FilterByCalories(int maxCalories)
+        public List<Recipe> FilterByCalories(int maxiumumCalories)
         {
-            return recipes.Where(r => r.Calories <= maxCalories).ToList();
+            return recipes.Where(r => r.Calories <= maxiumumCalories).ToList();
         }
 
-        // Helper method to get original ingredient quantity
-        private double GetOriginalQuantity(string ingredientName)
-        {
-            // Implement your logic to retrieve the original quantity from storage/database
-            return 0.0; // Placeholder value, replace with your implementation
-        }
+
     }
 
     // MainWindow class (UI)
@@ -123,12 +107,6 @@ public void ScaleRecipe(double scaleFactor)
 
             controlRecipe = new controlRecipe();
             displayedRecipes = new List<Recipe>();
-
-        
-
-     
-
-        
 
             UpdateDisplayedRecipes();
         }
@@ -224,7 +202,16 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
 }
 
 
-      
+        private void ResetQuantitiesButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RecipeListBox.SelectedItem is Recipe selectedRecipe)
+            {
+                MessageBox.Show(" Quantities have reset back to original values");
+
+                controlRecipe.ResetQuantities(selectedRecipe.RecipeName);
+                UpdateDisplayedRecipes();
+            }
+        }
 
         private void DisplayRecipeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -233,6 +220,7 @@ private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
                 var recipeDetails = $"The Full Recipe is as follows\n" +
                                      $"Name: {selectedRecipe.RecipeName}\n" +
                                     $"Calories: {selectedRecipe.Calories}\n" +
+
                                     $"Food Group: {selectedRecipe.FoodGroup}\n" +
                                     "\nIngredients:\n";
 
